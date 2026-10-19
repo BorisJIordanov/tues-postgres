@@ -1,14 +1,5 @@
-Build the database of a small electronic gradebook for one class: students, subjects and grades – every grade is a number from 2 to 6, in a given subject, for a given student, on a given date. The database must not allow a grade of 7 or 1.
+# Assignment 5 — Electronic Gradebook
 
-One student has many grades in one subject. On one date there can be grades in different subjects.
+I made three tables: `students` for the students, `subjects` for the school subjects, and `grades` for individual grades. Each table has a primary key, and `grades` uses foreign keys to connect each grade to an existing student and subject. I used `DATE` for the grade date, `INTEGER` for grades, and a `CHECK` constraint to allow only grades from 2 to 6. I do not store student names or subject names again in the `grades` table because their IDs already identify them, and I do not store averages because they can be calculated from the grades.
 
-The database must be able to answer
-All grades of a given student in a given subject, by date.
-The class average grade in each subject (with two decimal places) and the number of grades.
-Each question = one SQL query that returns the answer as a table.
-
-Minimum data
-at least 5 students and at least 4 subjects
-at least 20 grades; at least one student with 3+ grades in one subject
-an attempt to INSERT a grade of 7 – write down in the README what the database answers
-Your made-up data is good when every query returns at least 2 rows and there is something that could go wrong.
+**Invalid grade test:** An attempt to insert a grade of 7 is rejected by the database because it violates the `CHECK` constraint.
